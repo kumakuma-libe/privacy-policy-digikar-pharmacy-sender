@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - 院外処方箋Chatworkセンダー</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+      line-height: 1.8;
+    }
+    h1 { font-size: 24px; border-bottom: 2px solid #e07b30; padding-bottom: 10px; }
+    h2 { font-size: 18px; margin-top: 32px; color: #e07b30; }
+    h3 { font-size: 16px; margin-top: 20px; }
+    p, li { font-size: 15px; }
+    ul { padding-left: 20px; }
+    code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+    .updated { color: #888; font-size: 13px; }
+    .note { background: #fff8dc; border-left: 4px solid #f4b400; padding: 10px 14px; margin: 16px 0; }
+    .contact { background: #fef3ea; border-left: 4px solid #e07b30; padding: 10px 14px; margin: 16px 0; font-size: 14px; }
+    .purpose { background: #eef7ee; border-left: 4px solid #34a853; padding: 12px 14px; margin: 16px 0; }
+    .pledge { background: #fef3ea; border-left: 4px solid #e07b30; padding: 10px 14px; margin: 16px 0; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #fef3ea; }
+  </style>
+</head>
+<body>
+  <h1>プライバシーポリシー</h1>
+  <p class="updated">最終更新日: 2026年6月3日 ／ バージョン: 1.0.0</p>
+
+  <p>本プライバシーポリシーは、Chrome拡張機能「<strong>院外処方箋Chatworkセンダー</strong>」（以下「本拡張機能」）における
+  ユーザーデータの取り扱いについて説明します。</p>
+
+  <div class="note">
+    本拡張機能は医療従事者向けの院内利用を想定した「限定公開」の拡張機能です。
+  </div>
+
+  <!-- 単一の目的 -->
+  <h2>1. 単一の目的（Single Purpose）</h2>
+  <div class="purpose">
+    <strong>本拡張機能の唯一の目的:</strong><br>
+    エムスリーデジカル（DigiKar）で開いている患者カルテから院外処方箋PDFを取得し、
+    ユーザーが指定した Chatwork ルーム（送信先の薬局など）へワンクリックで転送する作業を補助することです。<br>
+    本拡張機能は、この目的以外の機能（広告表示・ユーザー追跡・SNS連携・分析計測・第三者へのデータ販売など）を一切持ちません。
+  </div>
+
+  <!-- 扱うデータ -->
+  <h2>2. 拡張機能が扱うデータ</h2>
+  <p>本拡張機能は、ユーザーが拡張機能のアイコンをクリックし「処方箋を送信する」ボタンを押した時にのみ、以下のデータを処理します。
+  Chrome ウェブストアのデータ使用フォームで申告したカテゴリと一致するように、以下に分類して開示します。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Chrome ウェブストアの分類</th>
+        <th>本拡張機能における具体的内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>健康に関する情報</strong></td>
+        <td>エムスリーデジカルが生成した院外処方箋PDF本体（処方薬の内容を含む）。
+        ユーザーが Chatwork へ送信する目的でのみ取得し、送信完了後に拡張機能の内部メモリから即破棄します。</td>
+      </tr>
+      <tr>
+        <td><strong>個人を特定できる情報</strong></td>
+        <td>患者のカナ名（ファイル名生成用）、カルテID。
+        拡張機能のローカルストレージには保存せず、ユーザーが送信ボタンを押した時にのみ一時取得し、送信完了後に破棄します。
+        氏名（漢字）・住所・電話番号・生年月日・連絡先などは取得しません。</td>
+      </tr>
+      <tr>
+        <td><strong>ウェブサイトのコンテンツ</strong></td>
+        <td>ユーザーが操作した時に取得する、現在のタブの URL（カルテ画面の患者ID・日付・visitId）。</td>
+      </tr>
+      <tr>
+        <td><strong>認証に関する情報</strong></td>
+        <td>ユーザーが任意で設定する Chatwork API トークン。
+        ユーザーの端末内（<code>chrome.storage.local</code>）にのみ保存されます。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>本拡張機能は、以下のデータを <strong>収集しません</strong>:
+  位置情報、ブラウジング履歴、検索履歴、財務情報、決済情報、通信内容、その他生体情報（指紋・顔画像など）、
+  患者の漢字氏名・住所・電話番号・生年月日・連絡先。</p>
+
+  <!-- データの保存 -->
+  <h2>3. データの保存と保持期間</h2>
+  <ul>
+    <li><strong>処方箋PDF・患者カナ名・カルテID</strong>: ユーザーが送信ボタンを押してから Chatwork への送信が完了するまでの
+      <strong>数秒間のみ拡張機能のメモリ内に保持</strong>され、送信完了後に即破棄されます。
+      ローカルストレージや外部サーバーへの永続保存は <strong>一切行いません</strong>。
+    </li>
+    <li><strong>Chatwork API トークン・ルームID・ルーム名・メッセージテンプレート</strong>:
+      ユーザーが設定画面で入力した値のみ、ユーザーのブラウザ内（<code>chrome.storage.local</code>）に保存されます。
+      開発者を含む第三者には送信されません。手動削除（拡張機能のアンインストールを含む）以外では削除されません。</li>
+    <li><strong>重複送信検知用の最近の送信記録</strong>: 同じカルテへの 3 分以内の再送信を警告するため、
+      最大 50 件のカルテID・日付・タイムスタンプを <code>chrome.storage.local</code> に保持します。
+      カルテIDは送信先ルーム特定のための数値であり、患者の氏名・診療内容は含みません。</li>
+  </ul>
+
+  <!-- 権限と用途 -->
+  <h2>4. 拡張機能が要求する権限と用途</h2>
+  <p>本拡張機能が <code>manifest.json</code> で要求する権限と、その用途は以下のとおりです。
+  いずれも本拡張機能の単一の目的を達成するために必要最小限のものです。</p>
+  <table>
+    <thead>
+      <tr>
+        <th>権限</th>
+        <th>用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>storage</code></td>
+        <td>Chatwork API トークン・ルームID・テンプレート等の設定をブラウザ内に保存するため。</td>
+      </tr>
+      <tr>
+        <td><code>tabs</code> / <code>activeTab</code></td>
+        <td>ユーザーが拡張機能アイコンをクリックした時に、現在のタブの URL を読み取って
+        患者ID・日付・visitId を取得するため。
+        他のタブやブラウジング履歴・ブックマーク・パスワードへのアクセスは一切行いません。</td>
+      </tr>
+      <tr>
+        <td>ホスト権限 <code>https://digikar.jp/*</code></td>
+        <td>エムスリーデジカル（DigiKar）から院外処方箋PDFおよび患者カナ名を取得するため。
+        ユーザーが送信ボタンを押した時のみ通信を行います。</td>
+      </tr>
+      <tr>
+        <td>ホスト権限 <code>https://api.chatwork.com/v2/*</code></td>
+        <td>取得した院外処方箋PDFをユーザー指定の Chatwork ルームへアップロードするため。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 外部サービスへの送信 -->
+  <h2>5. 外部サービスへのデータ送信</h2>
+  <p>本拡張機能は、開発者が運営するサーバーへのデータ送信を一切行いません。
+  ユーザーが送信ボタンを押した時に限り、以下の 2 つの外部サービスとの間でのみ通信が発生します。</p>
+
+  <h3>5-1. エムスリーデジカル（DigiKar）への通信</h3>
+  <ul>
+    <li>送信先: <code>https://digikar.jp/public_api/*</code></li>
+    <li>送信内容: HTTPS GET リクエスト（リクエストボディなし・標準ブラウザ認証 Cookie のみ）</li>
+    <li>取得内容: 院外処方箋PDF、患者カナ名、当日のカルテ一覧</li>
+    <li>用途: 院外処方箋PDFのファイル名生成と本体取得</li>
+    <li>実行タイミング: ユーザーが「💊 処方箋を送信する」ボタンを押した時のみ</li>
+  </ul>
+  <div class="note">
+    本拡張機能は、エムスリーデジカル社が公開している内部 API を、ユーザーのログイン状態（Cookie）を利用して呼び出します。
+    エムスリーデジカル社のサーバーから取得した情報は、ユーザーの端末内でのみ処理され、開発者を含む第三者には送信されません。
+  </div>
+
+  <h3>5-2. Chatwork API への通信</h3>
+  <ul>
+    <li>送信先: <code>https://api.chatwork.com/v2/rooms/{ルームID}/files</code></li>
+    <li>送信内容: 院外処方箋PDF（multipart/form-data）、ユーザーが入力したメッセージ本文、X-ChatWorkToken ヘッダー</li>
+    <li>用途: ユーザーが指定した Chatwork ルームへ院外処方箋PDFをアップロードするため</li>
+    <li>実行タイミング: ユーザーが「💊 処方箋を送信する」ボタンを押した時のみ</li>
+  </ul>
+  <p>送信されたデータの取り扱いは、株式会社kubellの
+  <a href="https://go.chatwork.com/privacy/" target="_blank" rel="noopener">Chatwork プライバシーポリシー</a>
+  に従います。</p>
+
+  <!-- データ使用の誓約 -->
+  <h2>6. データの使用に関する誓約（Chrome ウェブストア開示事項）</h2>
+  <div class="pledge">
+    <ol>
+      <li>本拡張機能で扱うユーザーデータは、ユーザーが承認した目的
+        （院外処方箋PDFの Chatwork ルームへの転送）のためにのみ使用します。</li>
+      <li>本拡張機能で扱うユーザーデータを、第三者へ<strong>販売・貸与・譲渡しません</strong>。
+        承認された使用法に当てはまらない目的（マーケティング・広告等）でも、第三者へ転送することはありません。</li>
+      <li>本拡張機能で扱うユーザーデータを、<strong>信用力の判断や融資目的</strong>に使用したり、
+        そのような目的のために第三者へ転送することは<strong>一切ありません</strong>。</li>
+    </ol>
+  </div>
+
+  <!-- セキュリティ -->
+  <h2>7. セキュリティ対策</h2>
+  <ul>
+    <li><strong>シークレット管理</strong>: Chatwork API トークンはコードに直書きせず、
+      ユーザーの <code>chrome.storage.local</code> のみに保存します。</li>
+    <li><strong>入力フォーム保護</strong>: API トークン入力欄は <code>type="password"</code> によるマスク表示、
+      コピー・カット・右クリック・ドラッグ・選択を JavaScript で抑止し、
+      <code>autocomplete="off"</code> でブラウザ補完履歴に残しません。</li>
+    <li><strong>通信のセキュリティ</strong>: すべての通信は HTTPS で暗号化されます。
+      外部 API への通信は Service Worker (background.js) 経由で行い、
+      <code>host_permissions</code> を <code>digikar.jp</code> と <code>api.chatwork.com/v2</code> の 2 つに限定しています。</li>
+    <li><strong>ログの保護</strong>: コンソールログ・エラーメッセージに API トークン・患者カナ名・カルテID等を出力しません。</li>
+  </ul>
+
+  <!-- 医療安全 -->
+  <h2>8. 医療安全に関する補足</h2>
+  <p>本拡張機能は、医療機関と薬局のあいだの院外処方箋連絡業務を補助する目的のツールです。
+  処方内容の最終確認は、必ず処方医および調剤薬剤師が行うものとします。
+  本拡張機能は処方内容の自動チェックや診断支援を行うものではありません。</p>
+  <p>送信先 Chatwork ルームの設定は、ユーザーの自己責任で行います。
+  ご使用の前に、必ずテスト送信により正しい送信先に届くことをご確認ください。</p>
+
+  <!-- 利用者の責任 -->
+  <h2>9. 利用者の責任</h2>
+  <ul>
+    <li>Chatwork API トークンの厳重な管理（紛失・漏洩した場合は速やかに Chatwork で再発行してください）</li>
+    <li>送信先 Chatwork ルームの正確性の確認（誤送信防止のため、運用開始前のテスト送信を推奨します）</li>
+    <li>送信前のカルテ内容（処方薬等）の最終確認</li>
+  </ul>
+
+  <!-- ポリシーの変更 -->
+  <h2>10. ポリシーの変更</h2>
+  <p>本プライバシーポリシーは、必要に応じて改定される場合があります。改定があった場合は、本ページの最終更新日を更新します。</p>
+
+  <!-- お問い合わせ -->
+  <h2>11. お問い合わせ</h2>
+  <div class="contact">
+    本プライバシーポリシーに関するご質問は、Chromeウェブストアの拡張機能ページよりお問い合わせください。
+  </div>
+</body>
+</html>
